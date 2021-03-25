@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import axios from '../../axios-orders';
 
 import Burger from '../../components/Burger/Burger';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
@@ -10,23 +11,14 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as burgerBuilderActions from '../../store/actions/index';
 
-import axios from '../../axios-orders';
 class BurgerBuilder extends Component {
 
   state = {
-    purchasing: false,
-    loading: false,
-    error: false
+    purchasing: false
   }
 
   componentDidMount () {
-    // axios.get('https://burgerbuilder-39c39-default-rtdb.firebaseio.com/ingredients.json')
-    //   .then(response => {
-    //     this.setState({ingredients: response.data});
-    //   })
-    //   .catch(error => {
-    //     this.setState({error: true});
-    //   })
+
   }
 
   updatePurchaseState (ingredients) {
@@ -85,10 +77,6 @@ class BurgerBuilder extends Component {
       purchaseCancelled={this.purchaseCancelHandler}
       purchaseContinued={this.purchaseContinuedHandler}
     />;
-    }
-
-    if (this.state.loading) {
-      orderSumary = <Spinner />
     }
 
     return (
