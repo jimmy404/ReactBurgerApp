@@ -162,10 +162,12 @@ class ContactData extends Component {
         disabled={!this.state.formIsValid}
       >Order</Button>
     </form>);
+
     if (this.props.loading) {
-      <Spinner/>
+      // eslint-disable-next-line
+      <Spinner />
     }
-    return(
+    return (
       <div className={classes.ContactData}>
         <h4>Enter your Contact Data</h4>
         {form}
